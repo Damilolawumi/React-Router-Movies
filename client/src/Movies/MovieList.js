@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import {Link} from 'react-router-dom';
+import {Link} from 'react-router-dom'; //imported Link 
 
 const MovieList = props => {
   const [movies, setMovies] = useState([])
@@ -31,6 +31,8 @@ const MovieList = props => {
 function MovieDetails({ movie }) {
   const { title, director, metascore, stars,id } = movie;
   return (
+    // wrapped the card in movie list with a link to direct to {`/movies/${id}`}
+    // where the id is the id of an individual movie..from line 19 app.js
     <Link to={`/movies/${id}`}>
     <div className="movie-card">
       

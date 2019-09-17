@@ -6,7 +6,9 @@ const Movie = (props) => {
   console.log(props)
 
   useEffect(() => {
+    // const id = 1 was hard coded so i changed it to accept the props.match.params.id;
     const id = props.match.params.id;
+
     // change ^^^ that line and grab the id from the URL
     // You will NEED to add a dependency array to this effect hook
 
@@ -14,6 +16,7 @@ const Movie = (props) => {
       .get(`http://localhost:5000/api/movies/${id}`)
       .then(response => {
         setMovie(response.data);
+        console.log(response.data);
       })
       .catch(error => {
         console.error(error);
@@ -30,7 +33,7 @@ const Movie = (props) => {
   if (!movie) {
     return <div>Loading movie information...</div>;
   }
-
+//set the value of stars to an empty array
   const { title, director, metascore, stars = [] } = movie;
 
   return (
